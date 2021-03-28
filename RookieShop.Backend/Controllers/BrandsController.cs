@@ -52,6 +52,7 @@ namespace RookieShop.Backend.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> PutBrand(int id, BrandCreateRequest brandCreateRequest)
         {
             var brand = await _context.Brands.FindAsync(id);
@@ -68,6 +69,7 @@ namespace RookieShop.Backend.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult<BrandVm>> PostBrand(BrandCreateRequest brandCreateRequest)
         {
             var brand = new Brand
@@ -82,6 +84,7 @@ namespace RookieShop.Backend.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> DeleteBrand(int id)
         {
             var brand = await _context.Brands.FindAsync(id);
