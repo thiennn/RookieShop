@@ -10,5 +10,7 @@ namespace RookieShop.Backend.Data
             : base(options)
         {
         }
+
+        public DbSet<Brand> Brands { get; set; }
     }
 }
